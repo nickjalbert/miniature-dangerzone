@@ -116,6 +116,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gunicorn',
+    'kombu.transport.django',
+    'djcelery',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -153,3 +155,8 @@ LOGGING = {
 
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
+
+BROKER_BACKEND = 'django'
+
+import djcelery
+djcelery.setup_loader()
