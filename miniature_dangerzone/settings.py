@@ -164,9 +164,12 @@ AWS_STORAGE_BUCKET_NAME = 'miniature-dangerzone'
 STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
+CAPTRICITY_API_TOKEN = os.environ.get('CAPTRICITY_API_TOKEN')
+
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
+#BROKER_URL = 'django://'
 BROKER_BACKEND = 'django'
 
 import djcelery

@@ -2,10 +2,10 @@ miniature-dangerzone
 ====================
 
 ##TODO
-* Celery tasks
-* Image upload/storage
-* Static files / Twitter Bootstrap
-* Cap API calls
+* //Celery tasks
+* //Image upload/storage
+* //Static files / Twitter Bootstrap
+* //Cap API calls
 * Move non-media static files out of s3
 
 
