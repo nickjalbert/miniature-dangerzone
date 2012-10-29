@@ -5,6 +5,8 @@ miniature-dangerzone
 * Celery tasks
 * Image upload/storage
 * Static files / Twitter Bootstrap
+* Cap API calls
+* Move non-media static files out of s3
 
 
 ##Notes
