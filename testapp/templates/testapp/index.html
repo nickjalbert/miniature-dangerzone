@@ -13,6 +13,15 @@
             <li> {{el.name}} <img src="{{el.image.url}}"></li>
             {% endfor %}
         </ul>
+        <hr/>
+        {% if errors %}
+        <p class="text-error">{{errors}}</p>
+        {% endif %}
 
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
     </body>
 </html>
