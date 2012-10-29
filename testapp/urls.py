@@ -3,5 +3,5 @@ from testapp.views import home
 
 
 urlpatterns = patterns('',
-        url(r'$', home),
+        url(r'^$', home),
 )
