@@ -1,4 +1,5 @@
 # Django settings for miniature_dangerzone project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -118,8 +119,9 @@ INSTALLED_APPS = (
     'gunicorn',
     'kombu.transport.django',
     'djcelery',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
+    'storages',
+    'testapp',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -152,6 +154,14 @@ LOGGING = {
         },
     }
 }
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'miniature-dangerzone'
+STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
